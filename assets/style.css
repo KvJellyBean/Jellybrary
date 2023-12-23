@@ -5,4 +5,28 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+    border: 1px solid red;
+}
+
+body {
+    height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+/* Header */
+header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 25px;
+
+    & img {
+        width: 50px;
+        cursor: pointer;
+    }
+
+    & h1 {
+        cursor: pointer;
+    }
 }
