@@ -19,7 +19,6 @@ closeDialogButton.addEventListener('click', () => {
 form.addEventListener('submit', (e) => {
     e.preventDefault();
     addBookToLibrary();
-    console.log('Book inserted');
 });
 
 // Book constructor
@@ -52,6 +51,13 @@ function addBookToLibrary() {
     const bookPages = document.querySelector('#pages').value;
     const bookCover = document.querySelector('#cover').value;
     const bookStatus = document.querySelector('#status').checked;
+    const isBookExists = myLibrary.some(book => (book.title === bookTitle) && book.pages == bookPages);
+
+    if (isBookExists) {
+        alert('Book already inside the library');
+        return;
+    }
+
     const books = new Book(bookTitle, bookAuthor, bookPages, bookCover, bookStatus);
     myLibrary.push(books);
     renderBooks();
