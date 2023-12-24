@@ -43,8 +43,11 @@ function addBookToLibrary() {
     renderBooks();
 }
 
-// Function for rendering the books into the website
+// Function for rendering the books and info into the website
 function renderBooks() {
+    totalBook.innerText = countTotalBook();
+    completedBook.innerText = countTotalCompleted();
+    totalPages.innerText = countTotalPages();
     bookContainer.innerHTML = '';
 
     for (let i = 0; i < myLibrary.length; i++) {
@@ -70,4 +73,29 @@ function renderBooks() {
 function removeBook(index) {
     myLibrary.splice(index, 1);
     renderBooks();
+}
+
+// Statistic Informations
+const totalBook = document.querySelector('#infoBook p:nth-child(2)');
+const completedBook = document.querySelector('#infoCompleted p:nth-child(2)');
+const totalPages = document.querySelector('#infoPage p:nth-child(2)');
+
+function countTotalBook() {
+    return myLibrary.length;
+}
+
+function countTotalCompleted() {
+    let sum = 0;
+    myLibrary.forEach((book) => {
+        if (book.status) {
+            sum += 1;
+        }
+    });
+    return sum;
+}
+
+function countTotalPages() {
+    let sum = 0;
+    myLibrary.forEach((book) => sum += +book.pages);
+    return sum;
 }
