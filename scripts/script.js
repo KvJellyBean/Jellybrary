@@ -1,12 +1,18 @@
 const myLibrary = [];
-const addButton = document.querySelector('#library-container .addButton');
 const bookContainer = document.querySelector('.book-list');
+const addButton = document.querySelector('#library-container .addButton');
+const closeDialogButton = document.querySelector('#addBook .close');
 const dialog = document.querySelector('#addBook');
 const form = document.querySelector('#addBook form');
 
-// Event handler for showing diialog button
-addButton.addEventListener('click', (e) => {
+// Event handler for showing diialog
+addButton.addEventListener('click', () => {
     dialog.showModal();
+});
+
+// Event handler for closing diialog
+closeDialogButton.addEventListener('click', () => {
+    dialog.close();
 });
 
 // Add new book
