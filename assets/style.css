@@ -47,7 +47,9 @@ main {
         gap: 20px;
         text-transform: capitalize;
 
-        .info {
+        #infoBook,
+        #infoCompleted,
+        #infoPage {
             display: flex;
             justify-content: space-between;
             gap: 20px;
