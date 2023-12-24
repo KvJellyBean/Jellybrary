@@ -41,19 +41,21 @@
                 <legend>add book to library</legend>
 
                 <label for="bookName">book name: </label>
-                <input type="text" name="bookName" id="bookName">
+                <input type="text" name="bookName" id="bookName" required placeholder="Naruto">
 
                 <label for="bookAuthor">author: </label>
-                <input type="text" name="bookAuthor" id="bookAuthor">
+                <input type="text" name="bookAuthor" id="bookAuthor" required placeholder="Masashi Kishimoto">
 
                 <label for="pages">total pages: </label>
-                <input type="number" name="pages" id="pages">
+                <input type="number" name="pages" id="pages" required placeholder="100">
 
                 <label for="cover">url cover: </label>
-                <input type="text" name="cover" id="cover">
+                <input type="text" name="cover" id="cover" placeholder="https://exampleimg.com">
 
-                <input type="checkbox" name="status" id="status">
-                <label for="status">already read the book?</label>
+                <div class="status-box">
+                    <input type="checkbox" name="status" id="status">
+                    <label for="status">already read the book?</label>
+                </div>
 
                 <button type="submit">add</button>
             </form>
