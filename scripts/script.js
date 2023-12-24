@@ -64,23 +64,31 @@ function renderBooks() {
     totalPages.innerText = countTotalPages();
     bookContainer.innerHTML = '';
 
-    for (let i = 0; i < myLibrary.length; i++) {
-        const card = document.createElement('div');
-        card.classList.add('book');
-        card.innerHTML = `
-            <img src="${myLibrary[i].url}" alt="${myLibrary[i].title} Cover">
-                <div class="description">
-                <h3>${myLibrary[i].title}</h3>
-                <p>${myLibrary[i].author}</p>
-                <p>${myLibrary[i].pages}</p>
-                <div class="buttons">
-                    <button type="button" class="${myLibrary[i].status ? 'complete' : 'not-complete'}" onClick="changeStatus(${i})">${myLibrary[i].status ? 'Completed' : 'Not Completed'}</button>
-                    <span class="material-symbols-outlined" onClick="removeBook(${i})"> delete </span>
+    if (myLibrary.length > 0) {
+        for (let i = 0; i < myLibrary.length; i++) {
+            const card = document.createElement('div');
+            card.classList.add('book');
+            card.innerHTML = `
+                <img src="${myLibrary[i].url}" alt="${myLibrary[i].title} Cover">
+                    <div class="description">
+                    <h3>${myLibrary[i].title}</h3>
+                    <p>${myLibrary[i].author}</p>
+                    <p>${myLibrary[i].pages}</p>
+                    <div class="buttons">
+                        <button type="button" class="${myLibrary[i].status ? 'complete' : 'not-complete'}" onClick="changeStatus(${i})">${myLibrary[i].status ? 'Completed' : 'Not Completed'}</button>
+                        <span class="material-symbols-outlined" onClick="removeBook(${i})"> delete </span>
+                    </div>
                 </div>
-            </div>
-        `;
-        bookContainer.appendChild(card);
+            `;
+            bookContainer.appendChild(card);
+        }
+    } else {
+        const emptyContent = document.createElement('div');
+        emptyContent.classList.add('empty');
+        emptyContent.innerHTML = '<img src="./assets/empty.svg" alt="Empty Content">';
+        bookContainer.appendChild(emptyContent);
     }
+
 }
 
 // Function to remove a book in the library
