@@ -31,6 +31,16 @@ function Book(title, author, pages, url, status) {
     this.status = status;
 }
 
+// Function to change status
+Book.prototype.changeStatus = function () {
+    this.status = !this.status;
+}
+
+function changeStatus(index) {
+    myLibrary[index].changeStatus();
+    renderBooks();
+}
+
 // Function to create book object and render it
 function addBookToLibrary() {
     const bookTitle = document.querySelector('#bookName').value;
@@ -60,7 +70,7 @@ function renderBooks() {
                 <p>${myLibrary[i].author}</p>
                 <p>${myLibrary[i].pages}</p>
                 <div class="buttons">
-                    <button type="button" class="${myLibrary[i].status ? 'complete' : 'not-complete'}">${myLibrary[i].status ? 'Completed' : 'Not Completed'}</button>
+                    <button type="button" class="${myLibrary[i].status ? 'complete' : 'not-complete'}" onClick="changeStatus(${i})">${myLibrary[i].status ? 'Completed' : 'Not Completed'}</button>
                     <span class="material-symbols-outlined" onClick="removeBook(${i})"> delete </span>
                 </div>
             </div>
