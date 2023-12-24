@@ -19,6 +19,7 @@ closeDialogButton.addEventListener('click', () => {
 form.addEventListener('submit', (e) => {
     e.preventDefault();
     addBookToLibrary();
+    resetForm()
 });
 
 // Book constructor
@@ -51,7 +52,7 @@ function addBookToLibrary() {
     const bookPages = document.querySelector('#pages').value;
     const bookCover = document.querySelector('#cover').value;
     const bookStatus = document.querySelector('#status').checked;
-    const isBookExists = myLibrary.some(book => (book.title === bookTitle) && book.pages == bookPages);
+    const isBookExists = myLibrary.some(book => (book.title === bookTitle) && (book.pages == bookPages) && (book.author == bookAuthor));
 
     if (isBookExists) {
         alert('Book already inside the library');
@@ -101,6 +102,19 @@ function renderBooks() {
 function removeBook(index) {
     myLibrary.splice(index, 1);
     renderBooks();
+}
+
+function resetForm() {
+    const bookTitleField = document.querySelector('#bookName');
+    const bookAuthorField = document.querySelector('#bookAuthor');
+    const bookPagesField = document.querySelector('#pages');
+    const bookCoverField = document.querySelector('#cover');
+    const bookStatusField = document.querySelector('#status');
+    bookTitleField.value = '';
+    bookAuthorField.value = '';
+    bookPagesField.value = '';
+    bookCoverField.value = '';
+    bookStatusField.checked = false;
 }
 
 // Statistic Informations
