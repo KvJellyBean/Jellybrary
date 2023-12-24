@@ -162,7 +162,7 @@ dialog {
     top: 50%;
     left: 50%;
     margin-left: -220px;
-    margin-top: -300px;
+    margin-top: -320px;
     text-transform: capitalize;
     overflow: visible;
 
@@ -197,6 +197,7 @@ dialog {
         justify-content: center;
         align-items: center;
         gap: 10px;
+        font-weight: 500;
 
         & legend {
             font-weight: bold;
@@ -207,6 +208,34 @@ dialog {
 
         & input {
             padding: 5px;
+        }
+
+        & input:focus {
+            outline: none;
+            border: 2px solid green;
+        }
+
+        .status-box input,
+        .status-box label {
+            cursor: pointer;
+        }
+
+        & button {
+            padding: 10px 80px;
+            border-radius: 20px;
+            justify-self: center;
+            margin-top: 20px;
+            text-transform: capitalize;
+            font-weight: bold;
+            border: 2px solid grey;
+            cursor: pointer;
+            transition: .2s ease-in;
+        }
+
+        & button:hover {
+            background-color: grey;
+            color: white;
+            transition: .2s ease-in;
         }
     }
 }
