@@ -43,7 +43,11 @@ function changeStatus(index) {
 
 // Function to create book object and render it
 function addBookToLibrary() {
-    const bookTitle = document.querySelector('#bookName').value;
+    let bookTitle = document.querySelector('#bookName').value;
+    if (bookTitle.length > 20) {
+        bookTitle = bookTitle.substring(0, 17) + '...';
+    }
+
     const bookAuthor = document.querySelector('#bookAuthor').value;
     const bookPages = document.querySelector('#pages').value;
     const bookCover = document.querySelector('#cover').value;
