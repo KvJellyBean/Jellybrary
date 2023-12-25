@@ -291,3 +291,61 @@ footer {
     justify-content: center;
     padding: 10px;
 }
+
+/* Media Query */
+@media screen and (max-width: 430px) {
+
+    body {
+        height: auto;
+    }
+
+    header {
+        justify-content: center;
+    }
+
+    main {
+        display: flex;
+        flex-direction: column;
+
+        #library-info {
+            text-align: center;
+            padding-bottom: 5px;
+        }
+
+        #library-container {
+            grid-template-rows: auto 1fr;
+            grid-template-columns: 1fr;
+
+            .addButton {
+                justify-self: center;
+                width: 100%;
+            }
+
+            .book-list {
+                display: flex;
+                flex-direction: column;
+
+                .book {
+                    flex-direction: column;
+                    justify-content: start;
+                    width: auto;
+                    height: auto;
+                    gap: 20px;
+                    text-align: center;
+
+                    .buttons {
+                        flex-direction: column;
+                        gap: 10px;
+                    }
+                }
+
+                .empty {
+                    & img {
+                        height: auto;
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
