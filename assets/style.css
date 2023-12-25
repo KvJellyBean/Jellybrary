@@ -347,5 +347,10 @@ footer {
                 }
             }
         }
+
+        & dialog#addBook {
+            margin-left: -46%;
+            margin-top: -320px;
+        }
     }
 }
