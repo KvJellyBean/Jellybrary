@@ -354,3 +354,33 @@ footer {
         }
     }
 }
+
+@media screen and (max-width: 768px) {
+    body {
+        height: auto;
+    }
+
+    #library-container {
+        grid-template-rows: auto 1fr;
+        grid-template-columns: 1fr;
+    }
+
+    .addButton {
+        grid-column: 1/3;
+        justify-self: center;
+        width: 100%;
+    }
+
+    .book-list {
+        grid-column: 1/3;
+        display: flex;
+        flex-direction: column;
+
+        .empty {
+            & img {
+                height: auto;
+                width: 100%;
+            }
+        }
+    }
+}
