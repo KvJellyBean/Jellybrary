@@ -1,6 +1,6 @@
 const myLibrary = [];
 const bookContainer = document.querySelector('.book-list');
-const addButton = document.querySelector('#library-container .addButton');
+const addButton = document.querySelector('.addButton');
 const closeDialogButton = document.querySelector('#addBook .close');
 const dialog = document.querySelector('#addBook');
 const form = document.querySelector('#addBook form');
@@ -44,11 +44,13 @@ function changeStatus(index) {
 // Function to create book object and render it
 function addBookToLibrary() {
     let bookTitle = document.querySelector('#bookName').value;
-    if (bookTitle.length > 20) {
-        bookTitle = bookTitle.substring(0, 17) + '...';
+    if (bookTitle.length > 30) {
+        bookTitle = bookTitle.substring(0, 25) + '...';
     }
-
-    const bookAuthor = document.querySelector('#bookAuthor').value;
+    let bookAuthor = document.querySelector('#bookAuthor').value;
+    if (bookAuthor.length > 40) {
+        bookAuthor = bookAuthor.substring(0, 30) + '...';
+    }
     const bookPages = document.querySelector('#pages').value;
     const bookCover = document.querySelector('#cover').value;
     const bookStatus = document.querySelector('#status').checked;
@@ -77,14 +79,12 @@ function renderBooks() {
             card.classList.add('book');
             card.innerHTML = `
                 <img src="${myLibrary[i].url}" alt="${myLibrary[i].title} Cover">
-                    <div class="description">
-                    <h3>${myLibrary[i].title}</h3>
-                    <p>${myLibrary[i].author}</p>
-                    <p>${myLibrary[i].pages}</p>
-                    <div class="buttons">
-                        <button type="button" class="${myLibrary[i].status ? 'complete' : 'not-complete'}" onClick="changeStatus(${i})">${myLibrary[i].status ? 'Completed' : 'Not Completed'}</button>
-                        <span class="material-symbols-outlined" onClick="removeBook(${i})"> delete </span>
-                    </div>
+                <h3 class="title">${myLibrary[i].title}</h3>
+                <p class="author">${myLibrary[i].author}</p>
+                <p class="page">${myLibrary[i].pages} Pages</p>
+                <div class="buttons">
+                    <button type="button" class="${myLibrary[i].status ? 'complete' : 'not-complete'}" onClick="changeStatus(${i})"><span class="material-symbols-outlined"> ${myLibrary[i].status ? 'library_add_check' : 'auto_stories'} </span></button>
+                    <button type="button" class="delete" onClick="removeBook(${i})"><span class="material-symbols-outlined"> delete </span></button>
                 </div>
             `;
             bookContainer.appendChild(card);
