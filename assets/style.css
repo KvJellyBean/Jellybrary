@@ -247,7 +247,7 @@ main {
 
         .book:has(.complete) {
             & img {
-                border: 2px solid rgb(122, 77, 122);
+                border: 2px solid rgb(32, 136, 103);
             }
 
             .title,
