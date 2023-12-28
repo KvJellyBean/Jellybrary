@@ -13,6 +13,11 @@
     <header>
         <img src="assets/jelly.svg" alt="Jellybrary Logo">
         <h1>Jellybrary</h1>
+
+        <nav>
+            <a href="#"><span class="material-symbols-outlined"> info </span></a>
+            <a href="#"><span class="material-symbols-outlined"> add </span></a>
+        </nav>
     </header>
 
     <main>
@@ -33,6 +38,10 @@
                 <p>0</p>
             </div>
             <hr>
+
+            <div class="addButton">
+                <span class="material-symbols-outlined"> add </span>
+            </div>
         </div>
 
         <dialog id="addBook">
@@ -41,13 +50,13 @@
                 <legend>add book to library</legend>
 
                 <label for="bookName">book name: </label>
-                <input type="text" name="bookName" id="bookName" required placeholder="Naruto">
+                <input type="text" name="bookName" id="bookName" required placeholder="Title">
 
                 <label for="bookAuthor">author: </label>
-                <input type="text" name="bookAuthor" id="bookAuthor" required placeholder="Masashi Kishimoto">
+                <input type="text" name="bookAuthor" id="bookAuthor" required placeholder="Book's Writer">
 
                 <label for="pages">total pages: </label>
-                <input type="number" name="pages" id="pages" required placeholder="100">
+                <input type="number" name="pages" id="pages" required placeholder="Input number" min="0">
 
                 <label for="cover">url cover: </label>
                 <input type="text" name="cover" id="cover" placeholder="https://exampleimg.com">
@@ -61,20 +70,14 @@
             </form>
         </dialog>
 
-        <div id="library-container">
-            <div class="addButton">
-                <span class="material-symbols-outlined"> add </span>
-            </div>
-
-            <div class="book-list">
-                <div class="empty">
-                    <img src="./assets/empty.svg" alt="Empty Content">
-                </div>
+        <div class="book-list">
+            <div class="empty">
+                <img src="./assets/empty.svg" alt="Empty Content">
             </div>
         </div>
     </main>
 
-    <footer>Made with &hearts; by KvJellyBean</footer>
+    <footer>Made with &hearts; by&nbsp;<a href="https://github.com/KvJellyBean"> KvJellyBean</a></footer>
 
     <script src="scripts/script.js"></script>
 </body>
