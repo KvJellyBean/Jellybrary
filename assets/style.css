@@ -46,10 +46,6 @@ header {
     & h1 {
         cursor: pointer;
     }
-
-    & nav {
-        display: none;
-    }
 }
 
 /* Main */
@@ -59,31 +55,43 @@ main {
     height: 100%;
 
     #library-info {
-        padding: 50px 20px;
         display: flex;
         flex-direction: column;
         align-items: space-around;
-        gap: 20px;
+        gap: 40px;
         text-transform: capitalize;
         color: var(--text);
 
-        & hr {
-            border-color: var(--secondary);
+        .controller {
+            display: none;
         }
 
-        #infoBook,
-        #infoCompleted,
-        #infoPage {
+        .info-box {
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
             gap: 20px;
+            text-align: center;
 
-            & p {
-                display: inline-block;
+            & hr {
+                border-color: var(--secondary);
             }
 
-            & p:nth-child(2) {
-                color: var(--accent);
+            #infoBook,
+            #infoCompleted,
+            #infoPage {
+                display: flex;
+                justify-content: space-between;
+                gap: 20px;
+
+                & p {
+                    display: inline-block;
+                    padding: 10px;
+                }
+
+                & p:nth-child(2) {
+                    color: var(--accent);
+                    font-weight: bold;
+                }
             }
         }
 
@@ -124,6 +132,7 @@ main {
         height: 85vh;
         overflow-x: hidden;
         overflow-y: auto;
+        justify-items: center;
         /* padding: 50px; */
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -401,19 +410,6 @@ footer {
 
     header {
         justify-content: center;
-
-        & nav {
-            display: flex;
-            gap: 10px;
-            margin-left: 10px;
-            cursor: pointer;
-
-            & a {
-                text-decoration: none;
-                color: var(--text);
-                display: flex;
-            }
-        }
     }
 
     main {
@@ -421,10 +417,59 @@ footer {
         flex-direction: column;
 
         #library-info {
-            display: none;
+            align-items: center;
+            padding: 20px;
+
+            .info-box,
+            .addButton {
+                display: none;
+            }
+
+            .info-box.absolute {
+                display: flex;
+                padding: 20px;
+                margin: 30% auto;
+                border-radius: 10px;
+                background: rgba(255, 255, 255, .95);
+                color: var(--background);
+                position: absolute;
+                z-index: 99;
+                transition: .3s ease;
+            }
+
+            .controller {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: fit-content;
+                gap: 50px;
+                cursor: pointer;
+
+                & button {
+                    display: flex;
+                    border-radius: 10px;
+                    border: 2px solid var(--text);
+                    background-color: transparent;
+                    color: var(--accent);
+                    transition: .3s ease;
+
+                    & span {
+                        padding: 15px;
+                    }
+
+                    :hover {
+                        background-color: var(--text);
+                        color: var(--accent);
+                        border-radius: 10px;
+                        border: 2px solid var(--text);
+                        transition: .3s ease;
+                    }
+                }
+            }
         }
 
         .book-list {
+            height: 73vh;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -471,6 +516,7 @@ footer {
     }
 
     #library-info {
+        padding: 40px 10px;
         grid-column: 1/2;
     }
 
@@ -489,6 +535,10 @@ footer {
 }
 
 @media screen and (min-width: 780px) {
+    #library-info {
+        padding: 50px 20px;
+    }
+
     .book-list {
         padding: 50px;
     }
