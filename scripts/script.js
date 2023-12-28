@@ -1,18 +1,31 @@
 const myLibrary = [];
 const bookContainer = document.querySelector('.book-list');
 const addButton = document.querySelector('.addButton');
+const addButton2 = document.querySelector('.addButton2');
 const closeDialogButton = document.querySelector('#addBook .close');
 const dialog = document.querySelector('#addBook');
 const form = document.querySelector('#addBook form');
+const infoButton = document.querySelector('.infoButton');
+const infoBox = document.querySelector('.info-box');
 
 // Event handler for showing diialog
 addButton.addEventListener('click', () => {
     dialog.showModal();
 });
 
+addButton2.addEventListener('click', () => {
+    dialog.showModal();
+    infoBox.classList.remove('absolute');
+});
+
 // Event handler for closing diialog
 closeDialogButton.addEventListener('click', () => {
     dialog.close();
+});
+
+// Event handler to showing info of the library
+infoButton.addEventListener('click', (e) => {
+    infoBox.classList.toggle('absolute');
 });
 
 // Add new book
